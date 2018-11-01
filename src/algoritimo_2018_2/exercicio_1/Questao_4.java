@@ -9,34 +9,51 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Taffrel Xavier <taffarel_deus@hotmail.com>
+ * @author Taffarel Xavier <taffarel_deus@hotmail.com>
  */
 public class Questao_4 {
 
     public static void main(String[] args) {
-        int n1, n2, n3, resultado;
+        int n1, n2, n3, resultado = 0;
         String operador;
 
-        operador = JOptionPane.showInputDialog(null, "Digite o operador:", "Atenção", 1);
+        operador = JOptionPane.showInputDialog(null, "Digite o operador:",
+                "Atenção", 1);
         while (!operador.equalsIgnoreCase("+")
                 && !operador.equalsIgnoreCase("-")
                 && !operador.equalsIgnoreCase("*")
                 && !operador.equalsIgnoreCase("/")) {
-            operador = JOptionPane.showInputDialog(null, "Digite o operador:", "Atenção", 2);
+            operador = JOptionPane.showInputDialog(null, "Digite o operador:",
+                    "Atenção", 2);
         }
 
-        n1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o primeiro número:", "Atenção", 1));
-        n2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o segundo número:", "Atenção", 1));
-        n3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o terceiro número:", "Atenção", 1));
+        n1 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Digite o primeiro número:", "Atenção", 1));
+        n2 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Digite o segundo número:", "Atenção", 1));
+        n3 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Digite o terceiro número:", "Atenção", 1));
 
         if (operador.equalsIgnoreCase("*")) {
-            resultado = n1 + n2 + n3;
+            resultado = n1 * n2 * n3;
+            operador = "multiplicação";
         } else if (operador.equalsIgnoreCase("/")) {
             resultado = n1 / n2 / n3;
+            operador = "divisão";
         } else if (operador.equalsIgnoreCase("+")) {
+            resultado = n1 + n2 + n3;
+            operador = "soma";
         } else if (operador.equalsIgnoreCase("-")) {
+            resultado = n1 - n2 - n3;
+            operador = "subtração";
         }
 
+        JOptionPane.showMessageDialog(null, "A " + operador
+                + " dos números:\n" + n1 + "," + n2 + "," + n3
+                + " é igual a " + resultado,
+                "Atenção", 1);
+
+        System.exit(0);
     }
 
 }
