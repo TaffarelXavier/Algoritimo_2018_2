@@ -1,6 +1,5 @@
 package algoritimo_2018_2.exercicio_1;
 
-import java.util.Arrays;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
