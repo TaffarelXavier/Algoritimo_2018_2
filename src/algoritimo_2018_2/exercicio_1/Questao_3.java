@@ -1,6 +1,14 @@
 package algoritimo_2018_2.exercicio_1;
 
 import java.util.Arrays;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,8 +35,25 @@ public class Questao_3 {
         return txt.split(" ");
     }
 
+    /**
+     *
+     * @return
+     */
+    public static long[] getDt() {
+        //
+        Date date = new Date();
+        LocalDate localDate =
+                date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        long[] dt = {date.getTime(), localDate.getDayOfMonth(),
+            localDate.getMonthValue(), localDate.getYear()};
+        return dt;
+    }
+
     public static void main(String[] args) {
+        getDt();
         int dia, mes, ano;
+        DateFormat f = DateFormat.getDateInstance();
+        Date data2;
 
         while (true) {
             try {
@@ -52,8 +77,20 @@ public class Questao_3 {
                     ano = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "Digite o ANO, corretamente, do seu nascimento:"));
                 }
-                
-                JOptionPane.showMessageDialog(null, dia + "/" + mes + "/" + ano, "Atenção", 1);
+
+                try {
+                    data2 = f.parse(dia + "/" + mes + "/" + ano);
+                    
+                    long[] dt = getDt();
+                    
+                    int diffInDays = (int) ((dt[0] - data2.getTime()) / (1000 * 60 * 60 * 24));
+                    
+                    System.out.println(Calendar.YEAR);
+                    
+                    System.out.println(diffInDays / Calendar.YEAR);
+                } catch (ParseException ex) {
+                    Logger.getLogger(Questao_3.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             } catch (NumberFormatException e) {
                 String[] str = formatarString(e.getMessage());
