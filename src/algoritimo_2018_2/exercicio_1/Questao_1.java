@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Questao_1 {
 
     public static double[] ordernarArray(double[] array) { //sort in descending order
-        
+
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (array[i] >= array[j]) {
@@ -32,16 +32,19 @@ public class Questao_1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+
         double n[] = new double[4];
 
         for (int i = 0; i < n.length; i++) {
-            n[i] = Integer.parseInt(JOptionPane.showInputDialog(null, ""));
+            try {
+                n[i] = Integer.parseInt(JOptionPane.showInputDialog(null, ""));
+            } catch (Exception e) {
+            }
 
         }
 
         ordernarArray(n);
-        
+
         System.out.println(Arrays.toString(n));
 
     }
