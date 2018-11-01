@@ -13,17 +13,17 @@ import javax.swing.JOptionPane;
  */
 public class Questao_6 {
 
-    public static void main(String[] args) {
-        String a, b, c, d;
+    private static int soma = 0;
 
-        a = JOptionPane.showInputDialog(null, "Digite algum valoar para variável A");
-        c = a;
-        b = JOptionPane.showInputDialog(null, "Digite algum valoar para variável B");
-        d = b;
-        
-        a = d;
-        b = c;
-        System.out.println(a);
-        System.out.println(b);
+    public static void main(String args[]) {
+        int i;
+
+        for (i = 1; i < 100; i++) {
+            if (i <= 3) {
+                soma += i;
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "Somatório:" + soma);
     }
 }
