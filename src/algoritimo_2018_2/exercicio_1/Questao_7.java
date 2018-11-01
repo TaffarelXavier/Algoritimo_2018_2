@@ -14,16 +14,13 @@ import javax.swing.JOptionPane;
 public class Questao_7 {
 
     public static void main(String[] args) {
-        String a, b, c, d;
-
+        String a, b, aux;
         a = JOptionPane.showInputDialog(null, "Digite algum valoar para variável A");
-        c = a;
         b = JOptionPane.showInputDialog(null, "Digite algum valoar para variável B");
-        d = b;
-        
-        a = d;
-        b = c;
-        System.out.println(a);
-        System.out.println(b);
+        aux = a;
+        a = b;
+        b = aux;
+        System.out.println("A:" + a);
+        System.out.println("B:" +b);
     }
 }
