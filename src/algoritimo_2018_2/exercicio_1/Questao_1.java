@@ -22,21 +22,6 @@ public class Questao_1 {
         }
         return array;
     }
-
-    /**
-     *
-     * @param number
-     * @return
-     */
-    public static boolean isInteger(String number) {
-        try {
-            Integer.parseInt(number);
-        } catch (NumberFormatException e) {
-
-        }
-        return false;
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -46,10 +31,10 @@ public class Questao_1 {
 
         for (int i = 0; i < n.length; i++) {
 
-            while (n[i] == 0) {
+            while (n[i] == 0 || n[i] < 0) {
                 try {
                     n[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Número:" + (i + 1)));
-                } catch (Exception e) {
+                } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Insira um valor correto para o número: "  + (i + 1));
                 }
             }
