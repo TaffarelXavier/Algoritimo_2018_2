@@ -20,5 +20,6 @@ public class Questao_9 {
         valorDeposito = Double.parseDouble(JOptionPane.showInputDialog(null, ""));
 
         System.out.println(valorDeposito);
+        
     }
 }
