@@ -41,14 +41,14 @@ public class Questao_3 {
     public static long[] getDt() {
         //
         Date date = new Date();
-        LocalDate localDate =
-                date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate localDate
+                = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         long[] dt = {date.getTime(), localDate.getDayOfMonth(),
             localDate.getMonthValue(), localDate.getYear()};
         return dt;
     }
 
-    public static void main(String[] args) {
+    public static void exe() {
         getDt();
         int dia, mes, ano;
         DateFormat f = DateFormat.getDateInstance();
@@ -79,13 +79,13 @@ public class Questao_3 {
 
                 try {
                     data2 = f.parse(dia + "/" + mes + "/" + ano);
-                    
+
                     long[] dt = getDt();
-                    
+
                     int diffInDays = (int) ((dt[0] - data2.getTime()) / (1000 * 60 * 60 * 24));
-                    
+
                     System.out.println(Calendar.YEAR);
-                    
+
                     System.out.println(diffInDays / Calendar.YEAR);
                 } catch (ParseException ex) {
                     Logger.getLogger(Questao_3.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,6 +99,11 @@ public class Questao_3 {
                 }
             }
         }
+    }
 
+    public static void main(String[] args) {
+        int anoNascimento;
+        anoNascimento = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite", "", 2));
+        System.out.println(anoNascimento);
     }
 }

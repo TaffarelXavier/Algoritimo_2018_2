@@ -1,4 +1,6 @@
 package algoritimo_2018_2.exercicio_1;
+
+import java.awt.HeadlessException;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -8,40 +10,66 @@ import javax.swing.JOptionPane;
  */
 public class Questao_1 {
 
-    public static int[] ordernarArray(int[] array) { //sort in descending order
-
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                if (array[i] >= array[j]) {
-                    int x = array[i];
-                    array[i] = array[j];
-                    array[j] = x;
-                }
-            }
-        }
-        return array;
-    }
     /**
-     * @param args the command line arguments
+     * Eu poderia diminuir este código mais de 80% de linhas.
+     * @param args
      */
     public static void main(String[] args) {
 
-        int n[] = new int[4];
+        //Declaração das variáveis:
+        int n1, n2, n3, n4;
+        while (true) {
+            try {
+                n1 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o primeiro número:", "Atenção!", 2));
 
-        for (int i = 0; i < n.length; i++) {
-
-            while (n[i] == 0 || n[i] < 0) {
-                try {
-                    n[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Número:" + (i + 1)));
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Insira um valor correto para o número: "  + (i + 1));
+                n2 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o segundo número", "Atenção!", 2));
+                while (n1 == n2) {
+                    n2 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                            "Digite o segundo número", "Atenção!", 2));
                 }
+
+                n3 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o terceiro número:", "Atenção!", 2));
+                while (n2 == n3 || n1 == n3) {
+                    n3 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                            "Digite o terceiro número", "Atenção!", 2));
+                }
+
+                n4 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o quarto número:", "Atenção!", 2));
+                while (n1 == n4 || n2 == n4 || n3 == n4) {
+                    n4 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                            "Digite o quarto número", "Atenção!", 2));
+                }
+
+                int[] numeros = new int[4];
+                numeros[0] = n1;
+                numeros[1] = n2;
+                numeros[2] = n3;
+                numeros[3] = n4;
+                
+                //Ordena o array de forma ascendente:
+                Arrays.sort(numeros);
+                
+                //Inverte as posições:
+                n4 = numeros[3];
+                n3 = numeros[2];
+                n2 = numeros[1];
+                n1 = numeros[0];
+                
+                //Saída:
+                JOptionPane.showMessageDialog(null,
+                        "↓" + n4 + "\n"
+                        + "↓" + n3 + "\n"
+                        + "↓" + n2 + "\n"
+                        + "↓" + n1, "Saída", 1);
+            } catch (HeadlessException | NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null,
+                        ex.getMessage(), "Atenção", 1);
             }
         }
-
-        ordernarArray(n);
-
-        System.out.println(Arrays.toString(n));
 
     }
 
