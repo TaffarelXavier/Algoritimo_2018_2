@@ -15,12 +15,16 @@ public class Questao_7 {
 
     public static void main(String[] args) {
         String a, b, aux;
-        a = JOptionPane.showInputDialog(null, "Digite algum valoar para variável A");
-        b = JOptionPane.showInputDialog(null, "Digite algum valoar para variável B");
-        aux = a;
-        a = b;
-        b = aux;
-        System.out.println("A:" + a);
-        System.out.println("B:" +b);
+        try {
+            a = JOptionPane.showInputDialog(null, "Digite algum valoar para variável A");
+            b = JOptionPane.showInputDialog(null, "Digite algum valoar para variável B");
+            aux = a;
+            a = b;
+            b = aux;
+            System.out.println("A:" + a);
+            System.out.println("B:" + b);
+        } catch (Exception e) {
+        }
+
     }
 }

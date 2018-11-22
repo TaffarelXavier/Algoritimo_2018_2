@@ -19,6 +19,7 @@ public class Questao_1 {
         //Declaração das variáveis:
         int n1, n2, n3, n4;
         String saida = "";
+        
         while (true) {
             
             try {
@@ -134,7 +135,6 @@ public class Questao_1 {
                     JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário.", "Atenção", 0);
                     System.exit(0);
                 }
-                System.exit(0);
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Atenção", 1);
             } catch (Exception ex1) {
                 System.exit(0);

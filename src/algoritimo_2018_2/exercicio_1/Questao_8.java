@@ -23,14 +23,14 @@ public class Questao_8 {
     }
 
     public static void main(String[] args) {
-        int c = 0, k = 0;
+        int c, k = 0;
         while (true) {
-
             try {
                 k++;
                 c = Integer.parseInt(JOptionPane.showInputDialog(null, "[" + k + "]\nDigite um valor númerico para Celsius"));
-                JOptionPane.showMessageDialog(null, convertCelsiusParaFahrenheit(c), "Atenção", 1);
+                JOptionPane.showMessageDialog(null, "°F "+convertCelsiusParaFahrenheit(c), "Atenção", 1);
             } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Atenção", 1);
             }
 
         }

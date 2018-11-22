@@ -18,48 +18,53 @@ public class Questao_4 {
         int n1, n2, n3, resultado = 0;
         String operador;
 
-        operador = JOptionPane.showInputDialog(null, "Digite o operador:",
-                "Atenção", 1);
-        while (!operador.equalsIgnoreCase("+")
-                && !operador.equalsIgnoreCase("-")
-                && !operador.equalsIgnoreCase("*")
-                && !operador.equalsIgnoreCase("/")) {
-            operador = JOptionPane.showInputDialog(null, "Digite o operador:",
-                    "Atenção", 2);
-        }
-        
-        try {
-            n1 = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    "Digite o primeiro número:", "Atenção", 1));
-            n2 = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    "Digite o segundo número:", "Atenção", 1));
-            n3 = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    "Digite o terceiro número:", "Atenção", 1));
+        //while (true) {
+            try {
 
-            if (operador.equalsIgnoreCase("*")) {
-                resultado = n1 * n2 * n3;
-                operador = "multiplicação";
-            } else if (operador.equalsIgnoreCase("/")) {
-                resultado = n1 / n2 / n3;
-                operador = "divisão";
-            } else if (operador.equalsIgnoreCase("+")) {
-                resultado = n1 + n2 + n3;
-                operador = "soma";
-            } else if (operador.equalsIgnoreCase("-")) {
-                resultado = n1 - n2 - n3;
-                operador = "subtração";
+                operador = JOptionPane.showInputDialog(null, "Digite o operador:",
+                        "Atenção", 1);
+
+                while (!operador.equalsIgnoreCase("+")
+                        && !operador.equalsIgnoreCase("-")
+                        && !operador.equalsIgnoreCase("*")
+                        && !operador.equalsIgnoreCase("/")) {
+                    operador = JOptionPane.showInputDialog(null, "Digite o operador:",
+                            "Atenção", 2);
+                }
+
+                n1 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o primeiro número:", "Atenção", 1));
+                n2 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o segundo número:", "Atenção", 1));
+                n3 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "Digite o terceiro número:", "Atenção", 1));
+
+                if (operador.equalsIgnoreCase("*")) {
+                    resultado = n1 * n2 * n3;
+                    operador = "multiplicação";
+                } else if (operador.equalsIgnoreCase("/")) {
+                    resultado = n1 / n2 / n3;
+                    operador = "divisão";
+                } else if (operador.equalsIgnoreCase("+")) {
+                    resultado = n1 + n2 + n3;
+                    operador = "soma";
+                } else if (operador.equalsIgnoreCase("-")) {
+                    resultado = n1 - n2 - n3;
+                    operador = "subtração";
+                }
+
+                JOptionPane.showMessageDialog(null, "A " + operador
+                        + " dos números:\n" + n1 + "," + n2 + "," + n3
+                        + " é igual a " + resultado,
+                        "Atenção", 1);
+
+            } catch (HeadlessException | NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Atenção", 1);
+            } catch (Exception e) {
+                System.exit(0);
             }
+        //}
 
-            JOptionPane.showMessageDialog(null, "A " + operador
-                    + " dos números:\n" + n1 + "," + n2 + "," + n3
-                    + " é igual a " + resultado,
-                    "Atenção", 1);
-
-        } catch (HeadlessException | NumberFormatException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        System.exit(0);
     }
 
 }
